@@ -153,13 +153,13 @@ def depth_first_search(
     while frontier:
         current = frontier.pop()
 
-        # Test objectif au moment du dépilage (conformément au TD)[cite: 1]
+        # Test objectif au moment du dépilage
         if current == goal:
             return _reconstruct_path(parents, goal)
 
         explored.add(current)
 
-        # Inversion des voisins pour respecter la priorité de dépilage (up -> right -> down -> left)[cite: 1]
+        # Inversion des voisins pour respecter la priorité de dépilage (up -> right -> down -> left)
         for neighbor in reversed(successors(game_map, current)):
             if neighbor not in explored and neighbor not in parents:
                 parents[neighbor] = current
